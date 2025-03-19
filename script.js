@@ -778,7 +778,7 @@ const quran = [
         id:107,
         name:"سورة"+" "+s107,
         imgsrc: `img/download.jpg`,
-        audiosrc: `https://server12.mp3quran.net/maher/108.mp3`,
+        audiosrc: `https://server12.mp3quran.net/maher/107.mp3`,
     },
     {
         id:108,
