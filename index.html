@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="player-container" id="box" style="display: none;">
+        <header>
+            <h2 id="sura-name">Quran</h2>
+            <button onclick="openx();"><i class="fa-solid fa-bars"></i></button>
+            
+        </header>
+
+        <div class="row">
+            <div class="img">
+                <img id="img" src="img/download.jpg">
+            </div>
+    
+  
+            
+        </div>
+
+        
+        <div class="row" style="align-items: center;margin-top: 50px;">
+            
+            <div class="rowx">
+                <audio id="audio" src="" autoplay></audio>
+                <button id="play-stop" class="control-btn" style="min-width: 50px !important;"><i class="fa-solid fa-pause"></i></button>
+                <input type="range" id="slide" class="slider" min="0" max="100" value="0">
+                <h4 id="current-time">0:00</h4>
+            </div>
+        <div class="controls">
+            <button id="back" class="control-btn"><i class="fa-solid fa-backward"></i></button>
+            
+            <button id="next" class="control-btn"><i class="fa-solid fa-forward"></i></button>
+        </div>
+        </div>
+
+        
+        
+
+    </div>
+    <div class="player-container" id="box2" >
+        <header>
+            <h2>اختر سورة</h2>
+            <button onclick="closex();"><i class="fa-solid fa-circle-xmark"></i></button>
+            
+        </header>
+        <div class="scroll">
+            
+                
+                    <button onclick="currentTrackIndex = 0; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْفَاتِحَة</button>
+                    <button onclick="currentTrackIndex = 1; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْبَقَرَة</button>
+                    <button onclick="currentTrackIndex = 2; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة آلِ عِمْرَان</button>
+                    <button onclick="currentTrackIndex = 3; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلنِّسَاء</button>
+                    <button onclick="currentTrackIndex = 4; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْمَائِدَة</button>
+                    <button onclick="currentTrackIndex = 5; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْأَنْعَام</button>
+                    <button onclick="currentTrackIndex = 6; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْأَعْرَاف</button>
+                    <button onclick="currentTrackIndex = 7; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْأَنْفَال</button>
+                    <button onclick="currentTrackIndex = 8; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلتَّوْبَة</button>
+                    <button onclick="currentTrackIndex = 9; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة يُونُس</button>
+                    <button onclick="currentTrackIndex = 10; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة هُود</button>
+                    <button onclick="currentTrackIndex = 11; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة يُوسُف</button>
+                    <button onclick="currentTrackIndex = 12; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلرَّعْد</button>
+                    <button onclick="currentTrackIndex = 13; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة إِبْرَاهِيم</button>
+                    <button onclick="currentTrackIndex = 14; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْحِجْر</button>
+                    <button onclick="currentTrackIndex = 15; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلنَّحْل</button>
+                    <button onclick="currentTrackIndex = 16; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْإِسْرَاء</button>
+                    <button onclick="currentTrackIndex = 17; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْكَهْف</button>
+                    <button onclick="currentTrackIndex = 18; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة مَرْيَم</button>
+                    <button onclick="currentTrackIndex = 19; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة طه</button>
+                    <button onclick="currentTrackIndex = 20; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْأَنْبِيَاء</button>
+                    <button onclick="currentTrackIndex = 21; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْحَجّ</button>
+                    <button onclick="currentTrackIndex = 22; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْمُؤْمِنُون</button>
+                    <button onclick="currentTrackIndex = 23; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلنُّور</button>
+                    <button onclick="currentTrackIndex = 24; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْفُرْقَان</button>
+                    <button onclick="currentTrackIndex = 25; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلشُّعَرَاء</button>
+                    <button onclick="currentTrackIndex = 26; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلنَّمْل</button>
+                    <button onclick="currentTrackIndex = 27; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْقَصَص</button>
+                    <button onclick="currentTrackIndex = 28; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْعَنْكَبُوت</button>
+                    <button onclick="currentTrackIndex = 29; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلرُّوم</button>
+                    <button onclick="currentTrackIndex = 30; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة لُقْمَان</button>
+                    <button onclick="currentTrackIndex = 31; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلسَّجْدَة</button>
+                    <button onclick="currentTrackIndex = 32; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْأَحْزَاب</button>
+                    <button onclick="currentTrackIndex = 33; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة سَبَأ</button>
+                    <button onclick="currentTrackIndex = 34; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة فَاطِر</button>
+                    <button onclick="currentTrackIndex = 35; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة يس</button>
+                    <button onclick="currentTrackIndex = 36; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلصَّافَّات</button>
+                    <button onclick="currentTrackIndex = 37; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ص</button>
+                    <button onclick="currentTrackIndex = 38; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلزُّمَر</button>
+                    <button onclick="currentTrackIndex = 39; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة غَافِر</button>
+                    <button onclick="currentTrackIndex = 40; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة فُصِّلَت</button>
+                    <button onclick="currentTrackIndex = 41; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلشُّورىٰ</button>
+                    <button onclick="currentTrackIndex = 42; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْزُّخْرُف</button>
+                    <button onclick="currentTrackIndex = 43; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلدُّخَان</button>
+                    <button onclick="currentTrackIndex = 44; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْجَاثِيَة</button>
+                    <button onclick="currentTrackIndex = 45; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْأَحْقَاف</button>
+                    <button onclick="currentTrackIndex = 46; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة مُحَمَّد</button>
+                    <button onclick="currentTrackIndex = 47; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْفَتْح</button>
+                    <button onclick="currentTrackIndex = 48; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْحُجُرَات</button>
+                    <button onclick="currentTrackIndex = 49; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ق</button>
+                    <button onclick="currentTrackIndex = 50; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلذَّارِيَات</button>
+                    <button onclick="currentTrackIndex = 51; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلطُّور</button>
+                    <button onclick="currentTrackIndex = 52; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلنَّجْم</button>
+                    <button onclick="currentTrackIndex = 53; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْقَمَر</button>
+                    <button onclick="currentTrackIndex = 54; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلرَّحْمَٰن</button>
+                    <button onclick="currentTrackIndex = 55; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْوَاقِعَة</button>
+                    <button onclick="currentTrackIndex = 56; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْحَدِيد</button>
+                    <button onclick="currentTrackIndex = 57; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْمُجَادِلَة</button>
+                    <button onclick="currentTrackIndex = 58; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْحَشْر</button>
+                    <button onclick="currentTrackIndex = 59; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْمُمْتَحَنَة</button>
+                    <button onclick="currentTrackIndex = 60; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلصَّفّ</button>
+                    <button onclick="currentTrackIndex = 61; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْجُمُعَة</button>
+                    <button onclick="currentTrackIndex = 62; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْمُنَافِقُون</button>
+                    <button onclick="currentTrackIndex = 63; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلتَّغَابُن</button>
+                    <button onclick="currentTrackIndex = 64; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلطَّلَاق</button>
+                    <button onclick="currentTrackIndex = 65; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلتَّحْرِيم</button>
+                    <button onclick="currentTrackIndex = 66; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْمُلْك</button>
+                    <button onclick="currentTrackIndex = 67; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْقَلَم</button>
+                    <button onclick="currentTrackIndex = 68; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْحَاقَّة</button>
+                    <button onclick="currentTrackIndex = 69; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْمَعَارِج</button>
+                    <button onclick="currentTrackIndex = 70; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة نُوح</button>
+                    <button onclick="currentTrackIndex = 71; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْجِنّ</button>
+                    <button onclick="currentTrackIndex = 72; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْمُزَّمِّل</button>
+                    <button onclick="currentTrackIndex = 73; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْمُدَّثِّر</button>
+                    <button onclick="currentTrackIndex = 74; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْقِيَامَة</button>
+                    <button onclick="currentTrackIndex = 75; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْإِنْسَان</button>
+                    <button onclick="currentTrackIndex = 76; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْمُرْسَلَات</button>
+                    <button onclick="currentTrackIndex = 77; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلنَّبَأ</button>
+                    <button onclick="currentTrackIndex = 78; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلنَّازِعَات</button>
+                    <button onclick="currentTrackIndex = 79; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة عَبَسَ</button>
+                    <button onclick="currentTrackIndex = 80; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلتَّكْوِير</button>
+                    <button onclick="currentTrackIndex = 81; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْإِنْفِطَار</button>
+                    <button onclick="currentTrackIndex = 82; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْمُطَفِّفِين</button>
+                    <button onclick="currentTrackIndex = 83; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْإِنْشِقَاق</button>
+                    <button onclick="currentTrackIndex = 84; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْبُرُوج</button>
+                    <button onclick="currentTrackIndex = 85; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلطَّارِق</button>
+                    <button onclick="currentTrackIndex = 86; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْأَعْلَىٰ</button>
+                    <button onclick="currentTrackIndex = 87; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْغَاشِيَة</button>
+                    <button onclick="currentTrackIndex = 88; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْفَجْر</button>
+                    <button onclick="currentTrackIndex = 89; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْبَلَد</button>
+                    <button onclick="currentTrackIndex = 90; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلشَّمْس</button>
+                    <button onclick="currentTrackIndex = 91; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱللَّيْل</button>
+                    <button onclick="currentTrackIndex = 92; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلضُّحَىٰ</button>
+                    <button onclick="currentTrackIndex = 93; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلشَّرْح</button>
+                    <button onclick="currentTrackIndex = 94; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلتِّين</button>
+                    <button onclick="currentTrackIndex = 95; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْعَلَق</button>
+                    <button onclick="currentTrackIndex = 96; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْقَدْر</button>
+                    <button onclick="currentTrackIndex = 97; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْبَيِّنَة</button>
+                    <button onclick="currentTrackIndex = 98; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلزَّلْزَلَة</button>
+                    <button onclick="currentTrackIndex = 99; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْعَادِيَات</button>
+                    <button onclick="currentTrackIndex = 100; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْقَارِعَة</button>
+                    <button onclick="currentTrackIndex = 101; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلتَّكَاثُر</button>
+                    <button onclick="currentTrackIndex = 102; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْعَصْر</button>
+                    <button onclick="currentTrackIndex = 103; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْهُمَزَة</button>
+                    <button onclick="currentTrackIndex = 104; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْفِيل</button>
+                    <button onclick="currentTrackIndex = 105; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة قُرَيْش</button>
+                    <button onclick="currentTrackIndex = 106; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْمَاعُون</button>
+                    <button onclick="currentTrackIndex = 107; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْكَوْثَر</button>
+                    <button onclick="currentTrackIndex = 108; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْكَافِرُون</button>
+                    <button onclick="currentTrackIndex = 109; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلنَّصْر</button>
+                    <button onclick="currentTrackIndex = 110; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْمَسَد</button>
+                    <button onclick="currentTrackIndex = 111; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْإِخْلَاص</button>
+                    <button onclick="currentTrackIndex = 112; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلْفَلَق</button>
+                    <button onclick="currentTrackIndex = 113; updatePlayer(); closex();" class="s-b"><i class="fa-solid fa-book-open"></i> سورة ٱلنَّاس</button>
+
+
+
+
+
+
+
+        </div>
+    </div>
+    <script>
+        function openx(){
+            document.getElementById("box").style.display="none";
+            document.getElementById("box2").style.display="flex";
+        }
+        function closex(){
+            document.getElementById("box").style.display="flex";
+            document.getElementById("box2").style.display="none";
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+
